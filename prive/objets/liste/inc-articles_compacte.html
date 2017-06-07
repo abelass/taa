@@ -1,5 +1,5 @@
 [(#REM)Adaptation du plugin du plugin afficher objets]
-[(#PLUGIN{rang}|?{
+[(#PLUGIN{rang}|et{#VAL{article}|appliquer_filtre{rang_objet_dans_config}}|?{
 	#SET{tri,rang}
 	[(#SET{defaut_tri,#ARRAY{
 		rang,1,
@@ -39,7 +39,7 @@
 	<thead>
 		<tr class="first_row">
 			[(#PLUGIN{rang}|oui)
-				[(#ENV{id_rubrique}|et{#VAL{article}|chercher_filtre{rang_objet_dans_config}}|oui)<th class="picto" scope="col"></th>]
+				[(#ENV{id_rubrique}|et{#VAL{article}|appliquer_filtre{rang_objet_dans_config}}|oui)<th class="picto" scope="col"></th>]
 			]
 			<th class="statut'">[(#TRI{statut,<span title="<:afficher_objets:info_statut|attribut_html:>">#</span>,ajax})]</th>
 			<th class='rang'>[(#TRI{num titre,<:taa:rang:>,ajax})]</th>
@@ -58,7 +58,7 @@
 	</tbody>
 </table>
 [(#PLUGIN{rang}|oui)
-	[(#ENV{id_rubrique}|et{#VAL{article}|chercher_filtre{rang_objet_dans_config}}|oui)
+	[(#ENV{id_rubrique}|et{#VAL{article}|appliquer_filtre{rang_objet_dans_config}}|oui)
 	<INCLURE{fond=prive/squelettes/inclure/rang,objet=articles,id_rubrique,suffixe_pagination=art}/>
 	]
 ]
