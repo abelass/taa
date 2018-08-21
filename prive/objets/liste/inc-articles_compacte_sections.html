@@ -25,7 +25,7 @@
 [<caption><strong class="caption">(#ENV*{titre,<:info_tous_articles_presents:>})</strong></caption>]
 	<thead>
 		<tr class='first_row'>
-			[(#PLUGIN{rang}|oui)
+			[(#GET{rang_actif}|oui)
 				[(#ENV{id_rubrique}|et{#VAL{article}|appliquer_filtre{rang_objet_dans_config}}|oui)<th class="picto" scope="col"></th>]
 			]
 			<th class='statut'>[(#TRI{statut,<span title="<:afficher_objets:info_statut|attribut_html:>">#</span>,ajax})]</th>
@@ -47,6 +47,11 @@
 	</BOUCLE_liste_art>
 	</tbody>
 </table>
+[(#GET{rang_actif}|oui)
+	[(#ENV{id_rubrique}|et{#VAL{article}|appliquer_filtre{rang_objet_dans_config}}|oui)
+	<INCLURE{fond=prive/squelettes/inclure/rang,objet=articles,id_parent=#ID_RUBRIQUE,suffixe_pagination=art}/>
+	]
+]
 [<p class='pagination'>(#PAGINATION{prive})</p>]
 </div>
 </B_liste_art>[

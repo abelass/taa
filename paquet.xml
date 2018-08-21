@@ -15,6 +15,8 @@
 
 	<traduire module="taa" reference="fr" gestionnaire="salvatore" />
 
+	<utilise nom="rang" compatibilite="[1.0.3;[" />
+
 	<pipeline nom="header_prive" inclure="taa_pipelines.php" />
 	<pipeline nom="formulaire_charger" inclure="taa_pipelines.php" />
 	<pipeline nom="recuperer_fond" inclure="taa_pipelines.php" />
