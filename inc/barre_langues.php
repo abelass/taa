@@ -9,7 +9,6 @@ function inc_barre_langues_dist($id_article) {
 		include_spip('inc/presentation');
 	}
 	$row = sql_fetsel("*", "spip_articles", "id_article=$id_article");
-$row['lang'];
 
 	$id_rubrique = $row['id_rubrique'];
 	$id_trad = $row["id_trad"];
